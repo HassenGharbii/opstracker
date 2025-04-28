@@ -172,7 +172,7 @@ const AlarmsHeatMap = ({ alarms }) => {
           onClick={toggleMarkers}
           className={`toggle-markers-btn ${showMarkers ? 'active' : ''}`}
         >
-          {showMarkers ? 'Hide Markers' : 'Show Markers'}
+          {showMarkers ? 'إخفاء العلامات' : 'عرض العلامات'}
         </button>
       </div>
 

@@ -133,16 +133,16 @@ const AlarmTrendsChart = ({ alarms }) => {
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <h2 className="text-white text-base font-semibold tracking-wide">
-          {viewMode} Alarm Trends
+          {viewMode}  اتجاهات الإنذارات
         </h2>
         <select
           value={viewMode}
           onChange={(e) => setViewMode(e.target.value)}
           className="bg-[#0F172A] border border-[#3B82F6]/40 text-white text-sm px-3 py-1 rounded-lg shadow-sm hover:shadow-md transition-all"
         >
-          <option value="Yearly">📅 Yearly</option>
-          <option value="Monthly">🗓 Monthly</option>
-          <option value="Daily">📆 Daily</option>
+          <option value="Yearly">📅 سنوي</option>
+          <option value="Monthly">🗓 شهري</option>
+          <option value="Daily">📆 يومي</option>
         </select>
       </div>
 

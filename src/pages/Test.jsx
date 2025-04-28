@@ -24,7 +24,7 @@ function TestObvious() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/self", {
+        const res = await fetch("http://192.168.100.50:3000/self", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -48,7 +48,7 @@ function TestObvious() {
           return;
         }
 
-        const response = await axios.get('http://localhost:8000/alerts', {
+        const response = await axios.get('http://192.168.100.50:8000/alerts', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -182,7 +182,7 @@ function TestObvious() {
             </button>
             <div className="bg-[#393E46]/50 backdrop-blur-sm h-10 w-36 rounded-lg flex items-center justify-center text-sm font-semibold shadow-lg border border-[#00ADB5]/20">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#EEEEEE]">
-                Dashboard
+              لوحة القيادة
               </span>
             </div>
           </div>
@@ -224,32 +224,33 @@ function TestObvious() {
             onReset={handleResetFilters}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <KpiCard
-              title="Closed Alarms Count"
-              icon={FaChartBar}
-              value={filteredAlarms.filter(alarm => alarm.status === 'Closed').length || 0}
-              description="Total number of alarms that have been closed."
-            />
-            <KpiCard
-              title="Opened Alarms Count"
-              icon={FaChartBar}
-              value={filteredAlarms.filter(alarm => alarm.status === 'Opened').length || 0}
-              description="Total number of alarms that are still open."
-            />
-            <KpiCard
-              title="Unique Categories"
-              icon={FaChartBar}
-              value={new Set(filteredAlarms.map(alarm => alarm.category)).size || 0}
-              description="Total number of unique alarm categories."
-            />
-            <KpiCard
-              title="Total Alarms"
-              icon={FaChartBar}
-              value={filteredAlarms.length || 0}
-              description="Total number of alarms recorded."
-            />
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <KpiCard
+            title="عدد الإنذارات المغلقة"
+            icon={FaChartBar}
+            value={filteredAlarms.filter(alarm => alarm.status === 'Closed').length || 0}
+            description="إجمالي عدد الإنذارات التي تم إغلاقها."
+          />
+          <KpiCard
+            title="عدد الإنذارات المفتوحة"
+            icon={FaChartBar}
+            value={filteredAlarms.filter(alarm => alarm.status === 'Opened').length || 0}
+            description="إجمالي عدد الإنذارات التي لا تزال مفتوحة."
+          />
+          <KpiCard
+            title="عدد الفئات الفريدة"
+            icon={FaChartBar}
+            value={new Set(filteredAlarms.map(alarm => alarm.category)).size || 0}
+            description="إجمالي عدد الفئات الفريدة للإنذارات."
+          />
+          <KpiCard
+            title="إجمالي عدد الإنذارات"
+            icon={FaChartBar}
+            value={filteredAlarms.length || 0}
+            description="إجمالي عدد الإنذارات المسجلة."
+          />
+        </div>
+
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 bg-[#393E46]/30 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-[#00ADB5]/20 h-80">

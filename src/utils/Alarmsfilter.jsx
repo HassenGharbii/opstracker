@@ -122,7 +122,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {/* Date Range */}
             <div className="space-y-2 col-span-full">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Date Range</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">نطاق التاريخ</label>
               <div className="flex space-x-2">
                 <input
                   type="date"
@@ -143,14 +143,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Category */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Category</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">فئة </label>
               <select
                 name="category"
                 value={filters.category}
                 onChange={handleFilterChange}
                 className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
               >
-                <option value="">All Categories</option>
+                <option value="">جميع الفئات</option>
                 {getUniqueValues('category').map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
@@ -160,14 +160,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
             {/* SubCategory - only shown when a category is selected */}
             {filters.category && (
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-[#EEEEEE]">Sub Category</label>
+                <label className="block text-sm font-medium text-[#EEEEEE]">فئة فرعية</label>
                 <select
                   name="subCategory"
                   value={filters.subCategory}
                   onChange={handleFilterChange}
                   className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
                 >
-                  <option value="">All Sub Categories</option>
+                  <option value="">جميع الفئات الفرعية </option>
                   {getUniqueSubCategories(filters.category).map(subCat => (
                     <option key={subCat} value={subCat}>{subCat}</option>
                   ))}
@@ -177,14 +177,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Status */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Status</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">حالة </label>
               <select
                 name="status"
                 value={filters.status}
                 onChange={handleFilterChange}
                 className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
               >
-                <option value="">All Statuses</option>
+                <option value="">جميع الحالات</option>
                 {getUniqueValues('status').map(status => (
                   <option key={status} value={status}>{status}</option>
                 ))}
@@ -193,14 +193,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Certainty */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Certainty</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">مستوى التأكيد </label>
               <select
                 name="certainty"
                 value={filters.certainty}
                 onChange={handleFilterChange}
                 className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
               >
-                <option value="">All Certainties</option>
+                <option value="">جميع مستويات التأكيد</option>
                 {getUniqueValues('certainty').map(certainty => (
                   <option key={certainty} value={certainty}>{certainty}</option>
                 ))}
@@ -209,14 +209,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Severity */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Severity</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">مستوى الشدة</label>
               <select
                 name="severity"
                 value={filters.severity}
                 onChange={handleFilterChange}
                 className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
               >
-                <option value="">All Severities</option>
+                <option value="">جميع مستويات الشدة</option>
                 {getUniqueValues('severity').map(severity => (
                   <option key={severity} value={severity}>{severity}</option>
                 ))}
@@ -225,14 +225,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Originator System */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Originator System</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">نظام المنشئ</label>
               <select
                 name="originatorSystem"
                 value={filters.originatorSystem}
                 onChange={handleFilterChange}
                 className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
               >
-                <option value="">All Originators</option>
+                <option value="">جميع أنظمة المنشئ</option>
                 {getUniqueValues('originatorSystem').map(originator => (
                   <option key={originator} value={originator}>{originator}</option>
                 ))}
@@ -257,14 +257,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Governorate */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Governorate</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">الولاية</label>
               <select
                 name="governorate"
                 value={filters.governorate}
                 onChange={handleFilterChange}
                 className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
               >
-                <option value="">All Governorates</option>
+                <option value="">جميع الولايات </option>
                 {getUniqueGroups(2).map(g => (
                   <option key={g} value={g}>{g}</option>
                 ))}
@@ -273,14 +273,14 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Delegation */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Delegation</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">المعتمدية </label>
               <select
                 name="delegation"
                 value={filters.delegation}
                 onChange={handleFilterChange}
                 className="w-full bg-[#393E46] border border-[#00ADB5]/30 rounded px-3 py-2 text-sm text-white"
               >
-                <option value="">All Delegations</option>
+                <option value="">جميع المعتمديات</option>
                 {getUniqueGroups(3).map(d => (
                   <option key={d} value={d}>{d}</option>
                 ))}

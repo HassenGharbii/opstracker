@@ -21,14 +21,16 @@ const generateColorPalette = (count) => {
 const AlarmsSeverityChart = ({ alarms }) => {
   // Mapping of Arabic severity labels to English
   const severityMapping = {
-    'عادي': 'Normal',
-    'متوسّط': 'Normal',
-    'اهم': 'Major',
-    'هام': 'Major',
-    'اهم جاء': 'Major',
-    'هام جدّا':'Major',
-    'مواعد': 'Minor',
-    // Add any other Arabic variations you need to map
+    'عادي': 'عادي',
+    'متوسّط': 'متوسّط',
+    'اهم': 'خطير',
+    'هام': 'خطير',
+    'اهم جاء': 'خطير',
+    'هام جدّا':'خطير',
+    'Unknown' :"غير معروف",
+    'Major':'خطير',
+    'Minor':'عادي'
+    
   };
 
   const severityCounts = alarms?.reduce((acc, alarm) => {
@@ -75,7 +77,7 @@ const AlarmsSeverityChart = ({ alarms }) => {
       },
       title: {
         display: true,
-        text: 'Alarm Severity Distribution',
+        text: 'توزيع مستويات خطورة الإنذارات',
         color: '#EEEEEE',
         font: { size: 16 },
       },

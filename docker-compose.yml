@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    restart: unless-stopped
+
+    ports:
+      - "5173:5173"  # Vite/React default port
+    volumes:
+      - .:/app
+      - /app/node_modules  # Avoid overwriting node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_OBVIOUS_BASE_URL=https://cloud.obvious.tech
+      - VITE_API_URL=http://backend:3000  # Connect to backend service
+    stdin_open: true  # Enable interactive mode
+    tty: true         # Allocate a pseudo-TTY
+    depends_on:
+      - backend       # Wait for backend to start
+
+  backend:
+    build: ./backend 
+    restart: unless-stopped
+    ports:
+      - "3000:3000"   # Maps host port 3000 to container port 3000
+    volumes:
+      - ./backend:/app  # Mounts backend code
+      - /app/node_modules  # Preserves container's node_modules
+    environment:
+      - NODE_ENV=development
+      - OBVIOUS_BASE_URL=https://cloud.obvious.tech
+      - REACT_APP_OBVIOUS_BASE_URL=https://cloud.obvious.tech
+      - PORT=3000
+  api:
+    build:
+      context: ./testingapi  # Key change!
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./testingapi:/app  # For development
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: unless-stopped
+  

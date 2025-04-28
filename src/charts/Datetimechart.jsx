@@ -117,7 +117,7 @@ const AlarmTimeDistributionChart = ({ alarms }) => {
       },
       title: {
         display: true,
-        text: `Alarm Distribution (${startTime} to ${endTime})`,
+        text: `توزيع الإنذارات(${startTime} إلى ${endTime})`,
         color: '#EEEEEE',
         font: { size: 16 },
         padding: { bottom: 20 }
@@ -149,7 +149,7 @@ const AlarmTimeDistributionChart = ({ alarms }) => {
         },
         title: {
           display: true,
-          text: 'Number of Alarms',
+          text: 'عدد الإنذارات',
           color: '#E5E7EB',
           font: {
             size: 12
@@ -167,7 +167,7 @@ const AlarmTimeDistributionChart = ({ alarms }) => {
         },
         title: {
           display: true,
-          text: 'Time Interval',
+          text: 'فترة زمنية',
           color: '#E5E7EB',
           font: {
             size: 12
@@ -182,7 +182,7 @@ const AlarmTimeDistributionChart = ({ alarms }) => {
       <div className="flex flex-wrap gap-4 mb-4 items-center">
         <div className="flex items-center space-x-2">
           <label htmlFor="startTime" className="text-sm font-medium text-gray-300">
-            From:
+          من:
           </label>
           <input
             type="time"
@@ -196,7 +196,7 @@ const AlarmTimeDistributionChart = ({ alarms }) => {
 
         <div className="flex items-center space-x-2">
           <label htmlFor="endTime" className="text-sm font-medium text-gray-300">
-            To:
+          إلى:
           </label>
           <input
             type="time"
@@ -210,7 +210,7 @@ const AlarmTimeDistributionChart = ({ alarms }) => {
 
         <div className="flex items-center space-x-2">
           <label htmlFor="timeBucket" className="text-sm font-medium text-gray-300">
-            Bucket Size:
+          حجم الفاصل الزمني
           </label>
           <select
             id="timeBucket"

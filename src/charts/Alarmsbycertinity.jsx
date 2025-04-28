@@ -83,7 +83,7 @@ const CertaintyDonutChart = ({ alarms }) => {
       },
       title: {
         display: true,
-        text: "Certainty Distribution",
+        text: "توزيع درجات التأكد",
         color: "#EEEEEE",
         font: {
           size: 16,
@@ -128,7 +128,7 @@ const CertaintyDonutChart = ({ alarms }) => {
           width: '120px'
         }}>
           <span className="text-white text-2xl font-bold block">{total}</span>
-          <span className="text-gray-400 text-sm">Total Alarms</span>
+          <span className="text-gray-400 text-sm">إجمالي الإنذارات</span>
         </div>
       </div>
     </div>

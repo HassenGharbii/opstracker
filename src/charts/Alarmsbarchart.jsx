@@ -150,7 +150,7 @@ const AlarmsByCategoryChart = ({ alarms }) => {
       }]
     };
     
-    titleText = `Top Alarm Categories (${startIdx + 1}-${Math.min(endIdx, totalItems)} of ${totalItems})`;
+    titleText = `أبرز فئات الإنذارات (${startIdx + 1}-${Math.min(endIdx, totalItems)} من  ${totalItems})`;
   }
 
   const totalPages = Math.ceil(totalItems / itemsPerPage);
