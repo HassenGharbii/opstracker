@@ -133,7 +133,9 @@ const AlarmTrendsChart = ({ alarms }) => {
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <h2 className="text-white text-base font-semibold tracking-wide">
-          {viewMode}  اتجاهات الإنذارات
+          {viewMode}  ترتيب عدد الأحداث بالزمن
+
+ 
         </h2>
         <select
           value={viewMode}

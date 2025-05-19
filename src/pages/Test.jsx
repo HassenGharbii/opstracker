@@ -24,7 +24,7 @@ function TestObvious() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://192.168.100.50:3000/self", {
+        const res = await fetch("http://192.168.1.23:3000/self", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -48,7 +48,7 @@ function TestObvious() {
           return;
         }
 
-        const response = await axios.get('http://192.168.100.50:8000/alerts', {
+        const response = await axios.get('http://192.168.1.23:8000/alerts', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -180,11 +180,7 @@ function TestObvious() {
             <button className="sm:hidden p-2 rounded-lg bg-[#393E46]/50">
               <FaBars />
             </button>
-            <div className="bg-[#393E46]/50 backdrop-blur-sm h-10 w-36 rounded-lg flex items-center justify-center text-sm font-semibold shadow-lg border border-[#00ADB5]/20">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#EEEEEE]">
-              لوحة القيادة
-              </span>
-            </div>
+          
           </div>
           <div className="flex space-x-3 sm:space-x-4 items-center">
           <div className="text-sm text-[#EEEEEE] font-medium hidden sm:block">
@@ -226,22 +222,22 @@ function TestObvious() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <KpiCard
-            title="عدد الإنذارات المغلقة"
+            title="عدد الأحداث المنجزة"
             icon={FaChartBar}
             value={filteredAlarms.filter(alarm => alarm.status === 'Closed').length || 0}
-            description="إجمالي عدد الإنذارات التي تم إغلاقها."
+            description="عدد الأحداث التي تم إنجازها  "
           />
           <KpiCard
-            title="عدد الإنذارات المفتوحة"
+            title="إجمالي الإنذارات الجارية"
             icon={FaChartBar}
             value={filteredAlarms.filter(alarm => alarm.status === 'Opened').length || 0}
-            description="إجمالي عدد الإنذارات التي لا تزال مفتوحة."
+            description=" عدد الأحداث التي بصدد إنجازها  "
           />
           <KpiCard
             title="عدد الفئات الفريدة"
             icon={FaChartBar}
             value={new Set(filteredAlarms.map(alarm => alarm.category)).size || 0}
-            description="إجمالي عدد الفئات الفريدة للإنذارات."
+            description=" إجمالي الأحداث حسب التصنيف."
           />
           <KpiCard
             title="إجمالي عدد الإنذارات"

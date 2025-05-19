@@ -86,7 +86,7 @@ const Login = ({ setIsAuthenticated }) => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/auth-obvious', formData, {
+      const response = await axios.post('http://192.168.1.23:3000/auth-obvious', formData, {
         headers: {
           'Content-Type': 'application/json'
         }

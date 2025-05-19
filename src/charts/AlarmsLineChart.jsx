@@ -47,7 +47,7 @@ const AlarmsGroupedChart = ({ alarms, groupLevel = "delegation" }) => {
         label:
           groupLevel === "governorate"
             ? "عدد الإنذارات حسب الولاية"
-            : "عدد الإنذارات حسب المعتمدية",
+            : " عدد الأحداث حسب المناطق ",
         data: dataValues,
         backgroundColor: "rgba(88, 86, 214, 0.7)",
         borderRadius: 6,

@@ -39,12 +39,18 @@ services:
       - "8000:8000"
     volumes:
       - ./testingapi:/app  # For development
-
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    restart: unless-stopped
-  
+  # tileserver:
+  #   image: overv/openstreetmap-tile-server
+  #   restart: unless-stopped
+  #   ports:
+  #     - "9090:90"  # Expose on port 8080
+  #   volumes:
+  #     - ./tiles-data:/var/lib/postgresql/12/main  # Persistent tile storage
+  #     - ./tiles-cache:/var/cache/renderd  # Cache for faster rendering
+  #   environment:
+  #     - THREADS=4  # Number of rendering threads
+  #     - ALLOW_CORS=enabled  # Allow cross-origin requests
+  #   ulimits:
+  #     nofile:
+  #       soft: 30000
+  #       hard: 40000

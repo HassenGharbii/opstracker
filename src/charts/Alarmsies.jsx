@@ -77,7 +77,7 @@ const AlarmsSeverityChart = ({ alarms }) => {
       },
       title: {
         display: true,
-        text: 'توزيع مستويات خطورة الإنذارات',
+        text: 'توزيع الأحداث حسب الخطورة',
         color: '#EEEEEE',
         font: { size: 16 },
       },

@@ -122,7 +122,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {/* Date Range */}
             <div className="space-y-2 col-span-full">
-              <label className="block text-sm font-medium text-[#EEEEEE]">نطاق التاريخ</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]"> التاريخ</label>
               <div className="flex space-x-2">
                 <input
                   type="date"
@@ -143,7 +143,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Category */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">فئة </label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">قائمة الأحداث </label>
               <select
                 name="category"
                 value={filters.category}
@@ -177,7 +177,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Status */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">حالة </label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">مستوى الإنجاز </label>
               <select
                 name="status"
                 value={filters.status}
@@ -193,7 +193,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Certainty */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">مستوى التأكيد </label>
+              <label className="block text-sm font-medium text-[#EEEEEE]"> مصدر الحدث </label>
               <select
                 name="certainty"
                 value={filters.certainty}
@@ -209,7 +209,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Severity */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">مستوى الشدة</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]"> أهمية الحدث</label>
               <select
                 name="severity"
                 value={filters.severity}
@@ -225,7 +225,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Originator System */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">نظام المنشئ</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]"> المنشئ </label>
               <select
                 name="originatorSystem"
                 value={filters.originatorSystem}
@@ -241,7 +241,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Metropolitan Region */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">Metropolitan Region</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]"> الجهة </label>
               <select
                 name="metro"
                 value={filters.metro}
@@ -257,7 +257,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Governorate */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">الولاية</label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">الأقليم </label>
               <select
                 name="governorate"
                 value={filters.governorate}
@@ -273,7 +273,7 @@ const AlarmFilters = ({ alarms = [], onFilter, onReset, className }) => {
 
             {/* Delegation */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#EEEEEE]">المعتمدية </label>
+              <label className="block text-sm font-medium text-[#EEEEEE]">المنطقة  </label>
               <select
                 name="delegation"
                 value={filters.delegation}

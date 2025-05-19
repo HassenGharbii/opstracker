@@ -117,7 +117,7 @@ const AlarmTimeDistributionChart = ({ alarms }) => {
       },
       title: {
         display: true,
-        text: `توزيع الإنذارات(${startTime} إلى ${endTime})`,
+        text: ` ترتيب الأحداث اليومي (${startTime} إلى ${endTime})`,
         color: '#EEEEEE',
         font: { size: 16 },
         padding: { bottom: 20 }

@@ -14,12 +14,7 @@ const CertaintyDonutChart = ({ alarms }) => {
   // Map Arabic certainty values to English
   const normalizeCertainty = (certainty) => {
     const map = {
-      // "مجهول": "Unknown",
-      // 'مَجْهُول' :"Unknown",
-      // "مُجْهُول": "Unknown",
-      // "مبلّغ": "Reported",
-      // "شاهد": "Likely",
-      // "محتمل": "Likely",
+   
       "مجهول": "مَجْهُول",
       'Unknown' :"مَجْهُول",
       "مُجْهُول": "مَجْهُول",
@@ -83,7 +78,7 @@ const CertaintyDonutChart = ({ alarms }) => {
       },
       title: {
         display: true,
-        text: "توزيع درجات التأكد",
+        text: " توزيع الأحداث حسب المصدر ",
         color: "#EEEEEE",
         font: {
           size: 16,
