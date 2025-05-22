@@ -24,7 +24,7 @@ const Login = ({ setIsAuthenticated }) => {
     if (token) {
       // If there's a token, set authentication state and navigate to /test
       setIsAuthenticated(true);
-      navigate('/test');
+      navigate('/alarms');
     }
   }, [token, setIsAuthenticated, navigate]);
 
@@ -86,7 +86,7 @@ const Login = ({ setIsAuthenticated }) => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://192.168.1.23:3000/auth-obvious', formData, {
+      const response = await axios.post('http://192.168.100.50:3000/auth-obvious', formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -118,7 +118,7 @@ const Login = ({ setIsAuthenticated }) => {
         draggable: true,
       });
 
-      navigate('/test');
+      navigate('/alarms');
 
     } catch (error) {
       console.error('Login error:', error);

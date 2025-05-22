@@ -2,15 +2,34 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 const cors = require('cors'); // Add this line
+const sql = require('mssql');
+
 
 require('dotenv').config();
 app.use(cors());
+
 
 // Validate required environment variables
 if (!process.env.OBVIOUS_BASE_URL) {
   console.error('Error: OBVIOUS_BASE_URL is not defined in .env file');
   process.exit(1);
 }
+const dbConfig = {
+  server: '192.168.100.50',
+  database: 'admin',
+  user: 'sa',
+  password: 'Admin123!',
+  options: {
+    encrypt: false,
+    trustServerCertificate: true,
+    port: 1433, // Explicitly specify port
+  },
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000
+  }
+};
 
 const OBVIOUS_BASE_URL = process.env.OBVIOUS_BASE_URL;
 
@@ -199,6 +218,24 @@ app.get('/self', ensureToken, async (req, res) => {
     }
 
     res.status(500).json({ error: 'Failed to get user info', details: err.response?.data || err.message });
+  }
+});
+app.get('/radio', async (req, res) => {
+  try {
+    // Connect to the database
+    await sql.connect(dbConfig);
+    
+    // Query the GPS data (adjust the query as needed for your table structure)
+    const result = await sql.query`SELECT * FROM gps_data`;
+    
+    // Send the data as JSON response
+    res.json(result.recordset);
+  } catch (err) {
+    console.error('SQL error:', err);
+    res.status(500).json({ error: 'Failed to fetch GPS data' });
+  } finally {
+    // Close the connection
+    sql.close();
   }
 });
 

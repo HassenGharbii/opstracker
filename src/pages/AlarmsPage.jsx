@@ -24,7 +24,7 @@ function TestObvious() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://192.168.1.23:3000/self", {
+        const res = await fetch("http://192.168.100.50:3000/self", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -48,7 +48,7 @@ function TestObvious() {
           return;
         }
 
-        const response = await axios.get('http://192.168.1.23:8000/alerts', {
+        const response = await axios.get('http://192.168.100.50:8000/alerts', {
           headers: {
             Authorization: `Bearer ${token}`
           }

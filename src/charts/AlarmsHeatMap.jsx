@@ -33,7 +33,7 @@ const AlarmsHeatMap = ({ alarms }) => {
         zoomAnimation: true,
       }).setView([36.8065, 10.1815], 12);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      L.tileLayer('http://192.168.100.3:8080/data/v3/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(newMap);
 

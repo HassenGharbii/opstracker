@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+
   frontend:
     build: .
     restart: unless-stopped
@@ -38,19 +39,26 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./testingapi:/app  # For development
-  # tileserver:
-  #   image: overv/openstreetmap-tile-server
-  #   restart: unless-stopped
-  #   ports:
-  #     - "9090:90"  # Expose on port 8080
-  #   volumes:
-  #     - ./tiles-data:/var/lib/postgresql/12/main  # Persistent tile storage
-  #     - ./tiles-cache:/var/cache/renderd  # Cache for faster rendering
-  #   environment:
-  #     - THREADS=4  # Number of rendering threads
-  #     - ALLOW_CORS=enabled  # Allow cross-origin requests
-  #   ulimits:
-  #     nofile:
-  #       soft: 30000
-  #       hard: 40000
+      - ./testingapi:/app 
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    restart: unless-stopped
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Admin123!
+      - MSSQL_PID=Express
+    volumes:
+      - sqlserverdata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "Admin123!", "-d", "master", "-Q", "SELECT 1"]
+      interval: 10s
+      retries: 5
+
+    networks:
+      - default
+
+volumes:
+  sqlserverdata:
